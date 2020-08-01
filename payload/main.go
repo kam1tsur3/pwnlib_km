@@ -21,7 +21,7 @@ func P32(n uint32) []byte{
 
 	return r
 }
-/*
+
 func U32(s []byte) uint32{
 	var n uint32 = 0
 
@@ -30,21 +30,13 @@ func U32(s []byte) uint32{
 	}
 
 	for i, c := range s{
-		n += uint32(c) << i*8
+		n += uint32(c) << uint32(i*8)
 	}
 
-	fmt.Println("U32()")
 	return n
 }
-*/
 
 // for 64bit
-/*func P64(n uint32) []byte{
-	r := make([]byte, 8, 8)
-	fmt.Println("P64(uint32)")
-	return r
-}
-*/
 func P64(n uint64) []byte{
 	r := make([]byte, 8, 8)
 
@@ -55,7 +47,7 @@ func P64(n uint64) []byte{
 
 	return r
 }
-/*
+
 func U64(s []byte) uint64{
 	var n uint64 = 0
 
@@ -64,10 +56,8 @@ func U64(s []byte) uint64{
 	}
 
 	for i, c := range s{
-		n += uint64(c) << (i*8)
+		n += uint64(c) << uint32(i*8)
 	}
 
-	fmt.Println("U64()")
 	return n
 }
-*/
