@@ -19,7 +19,6 @@ func P32(n uint32) []byte{
 		n >>= 8
 	}
 
-	fmt.Println("P32(uint32)")
 	return r
 }
 /*
@@ -46,19 +45,17 @@ func U32(s []byte) uint32{
 	return r
 }
 */
-/*
 func P64(n uint64) []byte{
 	r := make([]byte, 8, 8)
 
 	for i,_ := range r{
-		r[i] = n && uint64(0xff)
+		r[i] = byte(n && 0xff)
 		n >>= 8
 	}
 
-	fmt.Println("P64(uint64)")
 	return r
 }
-
+/*
 func U64(s []byte) uint64{
 	var n uint64 = 0
 
