@@ -49,7 +49,7 @@ func P64(n uint64) []byte{
 	r := make([]byte, 8, 8)
 
 	for i,_ := range r{
-		r[i] = byte(n && 0xff)
+		r[i] = byte(n & 0xff)
 		n >>= 8
 	}
 
