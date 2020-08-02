@@ -61,3 +61,7 @@ func U64(s []byte) uint64{
 
 	return n
 }
+// for house of corrosion
+func Offset2Size(off int64) int64{
+	return off*2-0x10
+}
