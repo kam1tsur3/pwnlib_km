@@ -3,6 +3,7 @@ package payload
 import(
 	"fmt"
 	"os"
+	"strings"
 )
 
 func Local_Error(s string) {
@@ -61,7 +62,35 @@ func U64(s []byte) uint64{
 
 	return n
 }
+
 // for house of corrosion
 func Offset2Size(off int64) int64{
 	return off*2-0x10
+}
+
+// Format String Bug
+func Fsb(width, offset, padding, roop int32, data uint64) []byte{
+	var r []byte
+	var s string
+	var format string
+	var mask uint32
+	var write_n, write_all uint64 = 0,0
+
+	switch width {
+		case 1:
+			format = "$hhn"
+			mask = 0xff
+		case 2:
+			format = "$hn"
+			mask = 0xffff
+		case 4:
+			format = "$n"
+			mask = 0xffffffff
+		default:
+			Local_Error("In Fsb(): width must be 1 or 2 or 4.\n")
+	}
+	for i := 0; i < roop; i++{
+		
+	}
+	return r
 }
