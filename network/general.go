@@ -7,16 +7,6 @@ import (
 
 func Local_Error(s string) {
 	fmt.Fprintf(os.Stderr, s)
+	fmt.Println("")
 	os.Exit(1)
 }
-
-func Test2() {
-	fmt.Println("in ssh-connect.go")
-}
-/*
-type SSH_Connection struct {
-
-}
-
-func
-*/

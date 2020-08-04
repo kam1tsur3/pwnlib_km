@@ -4,16 +4,12 @@ import (
 	"fmt"
 )
 
-func Test() {
-	fmt.Println("in connection.go")
+// Connection
+type Connection struct {
+
 }
 
-func Test3() {
-	Local_Error("in test3")
-}
-// Connection
-/*
-type Connection struct {
+func NewConnection(address string, port uint32) *Connection{
 
 }
 
@@ -21,6 +17,11 @@ func (conn Connection) Send(bs []byte){
 
 }
 
+func (conn Connection) Recv() []byte{
+
+}
+
+/*
 func (conn Connection)
 
 */
