@@ -3,6 +3,7 @@ package payload
 import(
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func Local_Error(s string) {
@@ -68,13 +69,14 @@ func Offset2Size(off int64) int64{
 }
 
 // Format String Bug
-func Fsb(width, offset, loop, padding int64, data uint64) []byte{
+func Fsb(width, offset, loop, padding uint32, data uint64) []byte{
 	var r []byte
 	var s string = ""
 	var format string
 	var mask uint32
-	var write_n, write_all int64 = 0,padding
-	move_up := 1 << (width*8)
+	var write_n, write_all uint32 = 0,padding
+	var move_up uint32 = 1 << (width*8)
+	var i uint32
 
 	switch width {
 		case 1:
@@ -89,12 +91,12 @@ func Fsb(width, offset, loop, padding int64, data uint64) []byte{
 		default:
 			Local_Error("In Fsb(): width must be 1 or 2 or 4.\n")
 	}
-	for i := 0; i < loop; i++{
-		write_n = ((data >> (i*8*width)) & mask) + move_up - (write_all & mask)
+	for  i = 0; i < loop; i++{
+		write_n = uint32((data >> (i*8*width)) & uint64(mask)) + move_up - (uint32(write_all) & mask)
 		if write_n > move_up { 
 			write_n -= move_up
 		}
-		s += "%" + string(write_n) + "x%" + string(offset+i) + format
+		s += "%" + strconv.Itoa(int(write_n)) + "x%" + strconv.Itoa(int(offset+i)) + format
 		write_all += write_n
 	}
 	r = []byte(s)
