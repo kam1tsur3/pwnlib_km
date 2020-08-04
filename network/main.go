@@ -8,6 +8,10 @@ import (
 func Test() {
 	fmt.Println("in connection.go")
 }
+
+func Test3() {
+	Local_Error("in test3")
+}
 // Connection
 /*
 type Connection struct {
