@@ -5,11 +5,6 @@ import (
 	"os"
 )
 
-func Local_Error(s string) {
-	fmt.Fprintf(os.Stderr, s)
-	os.Exit(1)
-}
-
 func Test() {
 	fmt.Println("in connection.go")
 }
