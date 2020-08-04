@@ -2,7 +2,6 @@ package network
 
 import (
 	"fmt"
-	"os"
 )
 
 func Test() {
